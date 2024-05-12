@@ -1,0 +1,58 @@
+body{
+    width: 100%;
+    height: 100vh;
+    background-color: #212529;
+    color: #ffffff;
+}
+::selection{
+    background-color: #108484;
+    color: #ffffff;
+}
+
+.cardBg{
+    background-color: #424242;
+}
+
+/* .home{
+    background-color: lightcoral;
+} */
+.cardDiv{
+    width: 20rem;
+    height: 100%;
+}
+.carouselSlider img{
+    border-radius: 15px;
+}
+.carouselSlider{
+    width: 100%;
+    height: 100%;
+}
+
+.listStripLine{
+    cursor: pointer;
+}
+
+.aTagStyle{
+    text-decoration: none;
+    color: #000000;
+}
+/* 
+.line-height{
+    line-height: 5px;
+} */
+
+@media screen and (max-width: 900px){
+    .home{
+        flex-wrap: wrap-reverse;
+    }
+}
+
+.homeATag{
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.navImg{
+    width: 30px;
+    height: 30px;
+}
