@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 import { Link, useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import SearchApi from '../components/SearchApi'
@@ -9,10 +9,9 @@ const Navbar = () => {
 
     const [searchValue, setSearchValue] = useState("");
 
-    const onClick = (e) => {
-        e.preventDefault();
-        history.push('/SearchApi');
-    };
+    const onClick =  useCallback(()=>{
+        window.location.reload();
+        }, []);
 
     const onChange = (e) => {
         e.preventDefault();
@@ -60,22 +59,22 @@ const Navbar = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">
+                    <li className="nav-item" onClick={onClick}>
                     <Link className="nav-link active text-white fw-medium" aria-current="page" to="/">Home</Link>
                     </li>
                 </ul>
                 <form className="d-flex me-3" role="search" onSubmit={onSubmit}>
-                    <input className="form-control me-2" type="search" placeholder="Search Your Product Here" id='search' name='search' aria-label="Search" onChange={onChange} onClick={onClick}/>
+                    <Link className="nav-link me-2" aria-current="page" to="/SearchApi"><input className="form-control me-2" type="search" placeholder="Search Your Product Here" id='search' name='search' aria-label="Search" onChange={onChange}/></Link>
                     <button className="btn btn-outline-info" type="submit">Search</button>
                 </form>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li className="nav-item">   
+                    <li className="nav-item" onClick={onClick}>   
                     <Link className="nav-link active text-white fw-medium" aria-current="page" to="/login">Login</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item" onClick={onClick}>
                     <Link className="nav-link active text-white fw-medium me-3" aria-current="page" to="/signup">Signup</Link>
                     </li>
-                    <li className="nav-item">
+                    <li className="nav-item" onClick={onClick}>
                     <Link className="nav-link active text-white d-flex gap-2" aria-current="page" to="/addtocart"><FaShoppingCart className='fs-4' />Cart</Link>
                     </li>
                 </ul>
