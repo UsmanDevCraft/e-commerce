@@ -84,14 +84,17 @@ const Navbar = () => {
     </div>
 
 
-
+    <div className='d-flex justify-content-center flex-wrap mt-4 pb-5'>
     {photos && photos.map((element)=>{
         const imageUrl = element.src.original;
         const price = element.id;
         return (
-            <SearchApi imageUrl={imageUrl} price={price} searchValue={searchValue} />
+            <div>
+                <SearchApi imageUrl={imageUrl} price={price} searchValue={searchValue} />
+            </div>
         )
     })}
+    </div>
 
     </>
   )
