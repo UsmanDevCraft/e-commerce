@@ -3,7 +3,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 const SearchApi = (props) => {
 
-  const {imageUrl, price, searchValue} = props;
+  // const {imageUrl, price, searchValue} = props;
 
 
   const [dataImg, setDataImg] = useState(null);
@@ -36,27 +36,83 @@ const SearchApi = (props) => {
     };
 
 
+
+
+    const [searchValue, setSearchValue] = useState("");
+
+    const onChange = (e) => {
+        e.preventDefault();
+        // console.log(e.target.value);
+        setSearchValue(e.target.value);
+        // console.log(searchValue)
+    };
+
+
+    const [photos, setPhotos] = useState([]);
+
+    {/* --------------------------- Pexels Api Call Functionality -------------------------- */}
+    const pexelApiCall = async () => {
+        const response = await fetch(`https://api.pexels.com/v1/search?query=${searchValue}&per_page=80`, {
+            method: "GET",
+            headers: {
+                "Authorization":"HhgfTUnKAAI7KRMwsRkzsLVL7Qi9MgWgOoZt6RzPl1ZKFfdPvn05nLvw"
+            },
+        });
+        const json = await response.json();
+        // console.log(json);
+        setPhotos(json.photos);
+    };
+
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        pexelApiCall();
+    };
+
+
+
+
   return (
-    <>
-    <div className='container mt-3 text-center'>
-      <div className="card cardHover cardBg text-white" style={{width: "18rem"}}>
-        <img style={{height:"15rem"}} src={imageUrl} className="card-img-top" alt="No Image" />
-        <div className="card-body">
-          <h5 className="card-title">{searchValue}</h5>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <p className='fw-medium text-start'>Rs. {price/200}</p>
-          <div className='d-flex gap-3'>
-              <p className='text-decoration-line-through'>Rs. {price/100}</p>
-              <p>50% off</p>
+
+<>
+
+<div className="container d-flex justify-content-center mt-5">
+<form className="d-flex" role="search" onSubmit={onSubmit}>
+        <input className="form-control me-2" style={{width:"25rem"}} type="search" placeholder="Search Your Product Here" aria-label="Search" onChange={onChange}/>
+        <button className="btn btn-outline-success" type="submit">Search</button>
+</form>
+</div>
+
+
+<div className='d-flex justify-content-center flex-wrap mt-4 pb-5'>
+    {photos && photos.map((element)=>{
+        const imageUrl = element.src.original;
+        const price = element.id;
+      return (
+        <div>
+          <div className='container mt-3 text-center'>
+          <div className="card cardHover cardBg text-white" style={{width: "18rem"}}>
+            <img style={{height:"15rem"}} src={imageUrl} className="card-img-top" alt="No Image" />
+            <div className="card-body">
+              <h5 className="card-title">{searchValue}</h5>
+              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p className='fw-medium text-start'>Rs. {price/200}</p>
+              <div className='d-flex gap-3'>
+                  <p className='text-decoration-line-through'>Rs. {price/100}</p>
+                  <p>50% off</p>
+              </div>
+              <div className='d-flex justify-content-center gap-3' style={{cursor: "pointer"}} onClick={onClick}>
+              <FaShoppingCart className='mt-1' />
+              <p>Add to Cart</p>
+              </div>
+            </div>
           </div>
-          <div className='d-flex justify-content-center gap-3' style={{cursor: "pointer"}} onClick={onClick}>
-          <FaShoppingCart className='mt-1' />
-          <p>Add to Cart</p>
           </div>
         </div>
-      </div>
-    </div>
-    </>
+      )
+    })}
+</div>
+</>
   )
 }
 
