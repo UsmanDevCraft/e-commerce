@@ -77,9 +77,9 @@ const SearchApi = (props) => {
 <>
 
 <div className="container d-flex justify-content-center mt-5">
-<form className="d-flex" role="search" onSubmit={onSubmit}>
-        <input className="form-control me-2" style={{width:"25rem"}} type="search" placeholder="Search Your Product Here" aria-label="Search" onChange={onChange}/>
-        <button className="btn btn-outline-success" type="submit">Search</button>
+<form className="d-flex flex-wrap" role="search" onSubmit={onSubmit}>
+        <input className="form-control me-2" type="search" placeholder="Search Your Product Here" aria-label="Search" onChange={onChange}/>
+        <button className="btn btn-outline-success mt-2" type="submit">Search</button>
 </form>
 </div>
 

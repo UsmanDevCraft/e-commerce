@@ -6,7 +6,7 @@ const CartSaved = (props) => {
   const dataImgUrls = JSON.parse(localStorage.getItem("dataImgs")) || [];
   
   return (
-    <div className='container mt-3 text-center d-flex justify-content-center flex-wrap gap-3'>
+    <div className='container mt-3 text-center d-flex justify-content-center flex-wrap gap-3 pb-4'>
       {dataImgUrls.map((dataImgUrl, index) => (
         <div key={index} className="card cardHover cardBg text-white" style={{width: "18rem"}}>
           <img style={{height:"15rem"}} src={dataImgUrl} className="card-img-top" alt="No Image" />
