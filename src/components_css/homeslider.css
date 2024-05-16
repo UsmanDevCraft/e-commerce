@@ -56,3 +56,10 @@ body{
     width: 30px;
     height: 30px;
 }
+
+@media screen and (max-width: 550px ) {
+    .carouselSlider img{
+        height: 50vh !important;
+        width: 100% !important;
+    }
+}

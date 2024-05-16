@@ -288,6 +288,10 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/13795451/pexels-photo-13795451.jpeg" />
+        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+            50% off
+            <span class="visually-hidden">unread messages</span>
+        </span>
                 <div className="card-body lh-1">
                 <p className="card-text">Pack 2 Large Storage Bags, Storage Bag Clothes...</p>
                 <p className='fw-medium'>Rs. 1500</p>
@@ -302,6 +306,10 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/5717640/pexels-photo-5717640.jpeg" />            
+        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+            50% off
+            <span class="visually-hidden">unread messages</span>
+        </span>
                 <div className="card-body lh-1">
                 <p className="card-text">Muntazir 5 in 1 Seamless Heavy Duty Strong Sticky...</p>
                 <p className='fw-medium'>Rs. 1500</p>
@@ -316,6 +324,10 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/3944105/pexels-photo-3944105.jpeg" />
+        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+            50% off
+            <span class="visually-hidden">unread messages</span>
+        </span>
                 <div className="card-body lh-1">
                 <p className="card-text">Mishneeka Portable Storage Bags Organizer</p>
                 <p className='fw-medium'>Rs. 1500</p>
@@ -330,6 +342,10 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg" />
+        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+            50% off
+            <span class="visually-hidden">unread messages</span>
+        </span>
                 <div className="card-body lh-1">
                 <p className="card-text">i9s tws and i7s single wireless bluetooth...</p>
                 <p className='fw-medium'>Rs. 1500</p>
@@ -344,6 +360,10 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/20020575/pexels-photo-20020575.jpeg" /> 
+        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+            50% off
+            <span class="visually-hidden">unread messages</span>
+        </span>
                 <div className="card-body lh-1">
                 <p className="card-text">kickza handbags for girls crossbody & shoulder bag...</p>
                 <p className='fw-medium'>Rs. 1500</p>
@@ -358,6 +378,10 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/3687956/pexels-photo-3687956.jpeg" />
+        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+            50% off
+            <span class="visually-hidden">unread messages</span>
+        </span>
                 <div className="card-body lh-1">
                 <p className="card-text">FEIDIAO Shaving Machine 3 in 1 portable...</p>
                 <p className='fw-medium'>Rs. 1500</p>
