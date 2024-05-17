@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min'
+import '../components_css/Login.css'
 
 const Login = (props) => {
 
@@ -47,21 +48,23 @@ const Login = (props) => {
     <div className='container mt-5'>
     
         <h1>Welcome! Please login.</h1>
-       <form onSubmit={onSubmit}>
-            <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email address</label>
-                <input onChange={onChange} type="email" className="form-control" name='email' id="email" aria-describedby="emailHelp" />
-                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password</label>
-                <input onChange={onChange} type="password" className="form-control" name='password' id="password" />
-            </div>
-            <button type="submit" className="btn btn-primary">Login</button>
-            <br />
-            <br />
-            <code style={{cursor: 'pointer'}} onClick={onClick}>Don't have an account? SignUp here.</code>
-        </form>
+       <div className="container formWidth w-50 mt-5">
+            <form onSubmit={onSubmit}>
+                <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email address</label>
+                    <input onChange={onChange} type="email" className="form-control bgBlack" name='email' id="email" aria-describedby="emailHelp" />
+                    <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input onChange={onChange} type="password" className="form-control bgBlack" name='password' id="password" />
+                </div>
+                <button type="submit" className="btn btn-primary">Login</button>
+                <br />
+                <br />
+                <code style={{cursor: 'pointer'}} onClick={onClick}>Don't have an account? SignUp here.</code>
+            </form>
+       </div>
 
     </div>
   )

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import '../components_css/Login.css'
 
 const Signup = (props) => {
 
@@ -43,29 +44,31 @@ const Signup = (props) => {
 
 
   return (
+    <>
     <div className='container mt-5'>
         <h1>SignUp Here</h1>
-        <form onSubmit={onSubmit}>
-            <div className="mb-3">
-                <label htmlFor="name" className="form-label">Name</label>
-                <input onChange={onChange} type="text" className="form-control" id="name" name='name' aria-describedby="emailHelp" minLength={3} />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email address</label>
-                <input onChange={onChange} type="email" className="form-control" id="email" name='email' aria-describedby="emailHelp" minLength={5} />
-                <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-            </div>
-            <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password</label>
-                <input onChange={onChange} type="password" className="form-control" name='password' id="password" />
-            </div>
-            <button type="submit" className="btn btn-primary">SignUp</button>
-            <br />
-            <br />
-            <code style={{cursor: 'pointer'}} onClick={onClick}>Already have an account? Login here.</code>
-        </form>
-
+        <div className="container mt-5 w-50 formWidth">
+            <form onSubmit={onSubmit}>
+                <div className="mb-3">
+                    <label htmlFor="name" className="form-label">Name</label>
+                    <input onChange={onChange} type="text" className="form-control bgBlack" id="name" name='name' aria-describedby="emailHelp" minLength={3} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="email" className="form-label">Email address</label>
+                    <input onChange={onChange} type="email" className="form-control bgBlack" id="email" name='email' aria-describedby="emailHelp" minLength={5} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="password" className="form-label">Password</label>
+                    <input onChange={onChange} type="password" className="form-control bgBlack" name='password' id="password" />
+                </div>
+                <button type="submit" className="btn btn-primary">SignUp</button>
+                <br />
+                <br />
+                <code style={{cursor: 'pointer'}} onClick={onClick}>Already have an account? Login here.</code>
+            </form>
+        </div>
     </div>
+    </>
   )
 }
 

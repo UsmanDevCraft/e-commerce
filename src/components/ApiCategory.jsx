@@ -7,9 +7,11 @@ const ApiCategory = () => {
     // console.log("Category " + category);
 
         const [photos, setPhotos] = useState([]);
+        const [loading, setLoading] = useState(false);
 
     {/* --------------------------- Pexels Api Call Functionality -------------------------- */}
     const pexelApiCall = async () => {
+        setLoading(true);
         const response = await fetch(`https://api.pexels.com/v1/search?query=${category}&per_page=80`, {
             method: "GET",
             headers: {
@@ -19,6 +21,7 @@ const ApiCategory = () => {
         const json = await response.json();
         // console.log(json)
         setPhotos(json.photos);
+        setLoading(false);
     };
 
     useEffect(()=>{
@@ -30,6 +33,11 @@ const ApiCategory = () => {
     <>
     <h1 className='container text-center mt-2'>Showing Results for {category}</h1>
     <div className='d-flex justify-content-center flex-wrap mt-4 pb-5'>
+        {loading && (
+            <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        )}
     {    photos && photos.map((element)=>{
         const imgSrc = element.src.original;
         const price = element.id;

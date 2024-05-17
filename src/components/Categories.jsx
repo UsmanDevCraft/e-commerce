@@ -6,6 +6,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 const Categories = () => {
 
     const history = useHistory();
+    const [loading, setLoading] = useState(false);
 
     const handleClick = (category, e) => {
         e.preventDefault();
@@ -60,6 +61,7 @@ const Categories = () => {
         {/* --------------------------- Pexels Api Call Functionality -------------------------- */}
         const [photos, setPhotos] = useState([]);
         const onClick = async () => {
+            setLoading(true);
             const response = await fetch(`https://api.pexels.com/v1/search?query=${"sales products"}&per_page=80`, {
                 method: "GET",
                 headers: {
@@ -69,6 +71,7 @@ const Categories = () => {
             const json = await response.json();
             // console.log(json)
             setPhotos(json.photos);
+            setLoading(false);
         };
 
 
@@ -280,7 +283,6 @@ const Categories = () => {
                 <span className='timeBg d-flex justify-content-center'>{sec}</span>
             </div>
         </div>
-        <button className="btn btn-outline-warning" onClick={onClick}>SHOP MORE</button>
     </div>
 
 
@@ -288,9 +290,9 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/13795451/pexels-photo-13795451.jpeg" />
-        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+        <span className="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
             50% off
-            <span class="visually-hidden">unread messages</span>
+            <span className="visually-hidden">unread messages</span>
         </span>
                 <div className="card-body lh-1">
                 <p className="card-text">Pack 2 Large Storage Bags, Storage Bag Clothes...</p>
@@ -306,9 +308,9 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/5717640/pexels-photo-5717640.jpeg" />            
-        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+        <span className="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
             50% off
-            <span class="visually-hidden">unread messages</span>
+            <span className="visually-hidden">unread messages</span>
         </span>
                 <div className="card-body lh-1">
                 <p className="card-text">Muntazir 5 in 1 Seamless Heavy Duty Strong Sticky...</p>
@@ -324,9 +326,9 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/3944105/pexels-photo-3944105.jpeg" />
-        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+        <span className="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
             50% off
-            <span class="visually-hidden">unread messages</span>
+            <span className="visually-hidden">unread messages</span>
         </span>
                 <div className="card-body lh-1">
                 <p className="card-text">Mishneeka Portable Storage Bags Organizer</p>
@@ -342,9 +344,9 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/8534088/pexels-photo-8534088.jpeg" />
-        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+        <span className="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
             50% off
-            <span class="visually-hidden">unread messages</span>
+            <span className="visually-hidden">unread messages</span>
         </span>
                 <div className="card-body lh-1">
                 <p className="card-text">i9s tws and i7s single wireless bluetooth...</p>
@@ -360,9 +362,9 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/20020575/pexels-photo-20020575.jpeg" /> 
-        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+        <span className="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
             50% off
-            <span class="visually-hidden">unread messages</span>
+            <span className="visually-hidden">unread messages</span>
         </span>
                 <div className="card-body lh-1">
                 <p className="card-text">kickza handbags for girls crossbody & shoulder bag...</p>
@@ -378,9 +380,9 @@ const Categories = () => {
         <a href="" className='categoryATags'>
         <div className="card cardBg text-white cardHover" style={{width: "20rem"}}>
         <img style={{height:"10rem"}} src="https://images.pexels.com/photos/3687956/pexels-photo-3687956.jpeg" />
-        <span class="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
+        <span className="position-absolute top-0 start-200 translate-middle badge rounded-pill bg-danger">
             50% off
-            <span class="visually-hidden">unread messages</span>
+            <span className="visually-hidden">unread messages</span>
         </span>
                 <div className="card-body lh-1">
                 <p className="card-text">FEIDIAO Shaving Machine 3 in 1 portable...</p>
@@ -394,10 +396,19 @@ const Categories = () => {
         </a>
     </div>
 
+    <div className="container d-flex justify-content-center pb-5">
+        <button className="btn btn-outline-warning" onClick={onClick}>SHOP MORE</button>
+    </div>
+
 
 
     {/* ------------ Div for showing the api images in a card using map() ------------ */}
     <div className="container d-flex justify-content-center flex-wrap gap-2">
+        {loading && (
+            <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </div>
+        )}
     {photos && photos.map((element)=>{
         const imageUrl = element.src.original;
         const price = element.id;

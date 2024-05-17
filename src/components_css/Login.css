@@ -1,0 +1,16 @@
+.bgBlack{
+    background-color: #212529;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+    .formWidth{
+        width: 80% !important;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .formWidth{
+        width: 100% !important;
+    }
+}

@@ -5,6 +5,7 @@ import ApiHomeCard from './ApiHomeCard';
 const ApiHomeSliderHeadings = (props) => {
 
   const { showAlert } = props;
+  const [loading, setLoading] = useState(false);
   
   const categoryHeading = localStorage.getItem("categoryHeading")
   // console.log("Category " + category);
@@ -13,6 +14,7 @@ const ApiHomeSliderHeadings = (props) => {
 
   {/* --------------------------- Pexels Api Call Functionality -------------------------- */}
   const pexelApiCall = async () => {
+    setLoading(true);
       const response = await fetch(`https://api.pexels.com/v1/search?query=${categoryHeading}&per_page=80`, {
           method: "GET",
           headers: {
@@ -22,6 +24,7 @@ const ApiHomeSliderHeadings = (props) => {
       const json = await response.json();
       // console.log(json)
       setPhotos(json.photos);
+    setLoading(false);
   };
 
   useEffect(()=>{
@@ -33,6 +36,11 @@ const ApiHomeSliderHeadings = (props) => {
     <>
     <h1 className='container text-center mt-2'>Showing Results for {categoryHeading}</h1>
       <div className="d-flex justify-content-center flex-wrap mt-4 pb-5">
+        {loading && (
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+        )}
         {photos && photos.map((element) => {
             const imgSrc = element.src.original;
             const price = element.id;

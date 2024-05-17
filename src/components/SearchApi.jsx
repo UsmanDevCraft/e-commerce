@@ -49,9 +49,11 @@ const SearchApi = (props) => {
 
 
     const [photos, setPhotos] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     {/* --------------------------- Pexels Api Call Functionality -------------------------- */}
     const pexelApiCall = async () => {
+      setLoading(true);
         const response = await fetch(`https://api.pexels.com/v1/search?query=${searchValue}&per_page=80`, {
             method: "GET",
             headers: {
@@ -61,6 +63,7 @@ const SearchApi = (props) => {
         const json = await response.json();
         // console.log(json);
         setPhotos(json.photos);
+      setLoading(false);
     };
 
 
@@ -85,6 +88,13 @@ const SearchApi = (props) => {
 
 
 <div className='d-flex justify-content-center flex-wrap mt-4 pb-5'>
+
+    {loading && (
+      <div className="spinner-border text-primary" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </div>
+    )}
+
     {photos && photos.map((element)=>{
         const imageUrl = element.src.original;
         const price = element.id;
